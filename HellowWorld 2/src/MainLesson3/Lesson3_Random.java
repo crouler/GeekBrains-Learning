@@ -44,10 +44,10 @@ public class Lesson3_Random {               // задаем случайное �
             int a = enterValue();                   // попытка угадать
             tryNum--;                               // вычитаем попытку
             if (randVal > a) {
-                System.out.println("Задайте число побольше )");
+                System.out.println("Неугадали. Задайте число побольше )");
             } else {
                 if (randVal < a) {
-                    System.out.println("Задайте число поменьше ))");
+                    System.out.println("Неугадали. Задайте число поменьше ))");
                 } else {
                     System.out.println(" Вы угадали !!! ))");
                     break;
@@ -89,11 +89,13 @@ public class Lesson3_Random {               // задаем случайное �
         }
 
     public static void main(String[] args) {
+        //задание 2
         String[] fruits = {"apple", "orange", "lemon", "banana", "apricot", "avocado", "broccoli", "carrot", "cherry", "garlic", "grape", "melon", "leak", "kiwi", "mango", "mushroom", "nut", "olive", "pea", "peanut", "pear", "pepper", "pineapple", "pumpkin", "potato"};
-        int ln;
-        ln = fruits.length;
         fruitArray(fruits);
 
+       // Задание1
+        //int num = numbersOfTrys();
+        guessNumber( randVal(), numbersOfTrys());
 
 
         //Scanner sc = new Scanner(System.in);
