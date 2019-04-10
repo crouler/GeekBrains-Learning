@@ -8,12 +8,13 @@ import java.util.Random;
 
 
 
+
 public class Lesson3_Random {               // задаем случайное число
 
     public static int randVal() {
         Random rand = new Random();
         int rV = rand.nextInt(9);
-        System.out.println("посказка   "+ rV);
+        System.out.println("посказка   " + rV);
         return rV;
 
     }
@@ -25,7 +26,6 @@ public class Lesson3_Random {               // задаем случайное �
         return tryNum;
     }
 
-    ;
 
     public static int enterValue() {                 // запрос на ввод числа от пользователя
         System.out.println("Введите число от 0 до 9");
@@ -34,10 +34,10 @@ public class Lesson3_Random {               // задаем случайное �
         //System.out.println(fingerToSky);
         return fingerToSky;
 
-    };
+    }
 
 
-    public static void guessNumber(int randVal, int tryNum){
+    public static void guessNumber(int randVal, int tryNum) {
         //int trys = numbersOfTrys();
 
         do {
@@ -45,28 +45,61 @@ public class Lesson3_Random {               // задаем случайное �
             tryNum--;                               // вычитаем попытку
             if (randVal > a) {
                 System.out.println("Задайте число побольше )");
+            } else {
+                if (randVal < a) {
+                    System.out.println("Задайте число поменьше ))");
+                } else {
+                    System.out.println(" Вы угадали !!! ))");
+                    break;
+                }
+                ;
             }
-            else {
-                if(randVal < a) {
-                    System.out.println("Задайте число поменьше ))");}
-
-                else {System.out.println(" Вы угадали !!! ))");break;};
-            };
+            ;
 
         }
-        while (tryNum > 0 );
-        };
-
-
-    public static void main(String[] args){
-         guessNumber(randVal(),numbersOfTrys());
-
-        //Scanner sc = new Scanner(System.in);
-        //  int a = sc.nextInt();                   // считывает число
-       //  String s = sc.nextLine();               //считывает всю строку
-       //  String c = sc.next();                   //считвыет строку до первого пробела
-
+        while (tryNum > 0);
     }
 
 
+//____________________________________
+
+        public static void fruitArray(String[] fruit ){            //задание угадай фрукт
+        Scanner sc = new Scanner(System.in);
+        int ln = fruit.length;
+        Random rand = new Random();
+        int rV = rand.nextInt(ln);                      // случайное число с границе в длину массива
+        String randFruit = fruit[rV];                   // случайный фрукт
+        System.out.println("угадай фрукт ");
+        System.out.println(""+ randFruit);
+        String str = sc.next();
+        int shortFruit = 0;
+        if (str.length() < randFruit.length()) shortFruit = str.length(); // определяем кол-во буков меньшего слова
+        else shortFruit = randFruit.length();
+            for(int i=0; i<shortFruit; i++){                                // печать на длину короткого слова
+                if(randFruit.charAt(i)== str.charAt(i)){
+                System.out.print(str.charAt(i));
+            }
+            else System.out.print("#");
+        }
+            for(int i=shortFruit; i<15; i++)                                // допечатываем симовлы до длины в 15 симв
+            { System.out.print("#");};
+
+           // System.out.println(randFruit);
+
+        }
+
+    public static void main(String[] args) {
+        String[] fruits = {"apple", "orange", "lemon", "banana", "apricot", "avocado", "broccoli", "carrot", "cherry", "garlic", "grape", "melon", "leak", "kiwi", "mango", "mushroom", "nut", "olive", "pea", "peanut", "pear", "pepper", "pineapple", "pumpkin", "potato"};
+        int ln;
+        ln = fruits.length;
+        fruitArray(fruits);
+
+
+
+        //Scanner sc = new Scanner(System.in);
+        //  int a = sc.nextInt();                   // считывает число
+        //  String s = sc.nextLine();               //считывает всю строку
+        //  String c = sc.next();                   //считвыет строку до первого пробела
+
+    }
 }
